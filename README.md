@@ -9,3 +9,7 @@
 ## Run
 
 ### `yarn start`
+
+## Storybook
+
+### `yarn run storybook` 
