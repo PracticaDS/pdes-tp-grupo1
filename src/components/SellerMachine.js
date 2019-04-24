@@ -1,11 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import './SellerMachine.css';
+import './SellerMachine.css'
 
 export class SellerMachine extends React.Component {
-  render() {
-    return (
-      <div className='seller'></div>
-    );
+  render () {
+    return <div className='seller' />
   }
 }
