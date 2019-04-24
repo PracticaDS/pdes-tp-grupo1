@@ -1,0 +1,6 @@
+.transporter {
+  width: 64px;
+  height: 64px;
+  /* background-color: blue; */
+  background-image: url('../../public/img/transporter.png');
+}
