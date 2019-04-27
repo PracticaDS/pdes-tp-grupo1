@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import { MachineToolbox} from './components/MachineToolbox'
+import MachineToolbox from './containers/MachineToolbox'
 import { Factory } from './components/Factory';
 
 function App() {

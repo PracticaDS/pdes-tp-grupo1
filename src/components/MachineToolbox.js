@@ -7,11 +7,12 @@ import { CrafterMachine } from './CrafterMachine'
 
 import './MachineToolbox.css'
 
-export class MachineToolbox extends React.Component {
-  render () {
+export const MachineToolbox = (onSelected) => {
+
     return (
       <div className='toolbox'>
         <h1 className='title'>Máquinas</h1>
+        <a href="#" onClick={onSelected}>Iniciar Juego</a>
         <div className='items'>
           <StarterMachine />
           <TransporterMachine />
@@ -21,5 +22,4 @@ export class MachineToolbox extends React.Component {
         </div>
       </div>
     )
-  }
 }
