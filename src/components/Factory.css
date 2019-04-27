@@ -1,0 +1,13 @@
+.factory {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  width: 550px;
+  height: 400px;
+}
+
+.factory .block {
+  border: 1px solid black;
+  height: 64px;
+  width: 64px;
+}
