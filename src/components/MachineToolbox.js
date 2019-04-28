@@ -7,7 +7,7 @@ import { CrafterMachine } from './CrafterMachine'
 
 import './MachineToolbox.css'
 
-export const MachineToolbox = (onSelected) => {
+export const MachineToolbox = ({onSelected}) => {
 
     return (
       <div className='toolbox'>
