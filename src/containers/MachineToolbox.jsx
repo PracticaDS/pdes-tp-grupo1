@@ -5,7 +5,7 @@ import { selected } from '../actions/game'
 
 const mapActionsToProps = dispatch => {
   return {
-    onSelected: () => dispatch(selected())
+    onSelected: machineType => dispatch(selected(machineType))
   }
 }
 

@@ -7,19 +7,19 @@ import { CrafterMachine } from './CrafterMachine'
 
 import './MachineToolbox.css'
 
-export const MachineToolbox = ({onSelected}) => {
+const constants = require('../constants')
 
-    return (
-      <div className='toolbox'>
-        <h1 className='title'>Máquinas</h1>
-        <a href="#" onClick={onSelected}>Iniciar Juego</a>
-        <div className='items'>
-          <StarterMachine />
-          <TransporterMachine />
-          <CrafterMachine />
-          <FurnaceMachine />
-          <SellerMachine />
-        </div>
+export const MachineToolbox = ({onSelected}) => {
+  return (
+    <div className='toolbox'>
+      <h1 className='title'>Máquinas</h1>
+      <div className='items'>
+        <span onClick={() => onSelected(constants.BLOCK_STARTER)} ><StarterMachine /></span>
+        <span onClick={() => onSelected(constants.BLOCK_TRANSPORTER)} ><TransporterMachine /></span>
+        <span onClick={() => onSelected(constants.BLOCK_CRAFTER)} ><CrafterMachine /></span>
+        <span onClick={() => onSelected(constants.BLOCK_FURNACE)} ><FurnaceMachine /></span>
+        <span onClick={() => onSelected(constants.BLOCK_SELLER)} ><SellerMachine /></span>
       </div>
-    )
+    </div>
+  )
 }
