@@ -1,5 +1,8 @@
 .toolbox {
   width: 150px;
+  float: left;
+  
+  border-radius: 10px;
 }
 
 .toolbox .title {
@@ -8,17 +11,19 @@
 }
 
 .toolbox .items {
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 5px;
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  border: 1px black solid;
+  border: 2px solid darkgray;
+  /* border: 1px black solid; */
   height: 200px;
 }
 
 .toolbox .items span {
   cursor: pointer;
+  margin-left: 2%;
 }
