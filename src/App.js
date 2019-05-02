@@ -1,16 +1,16 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import './App.css'
 
-import { MachineToolbox} from './components/MachineToolbox'
-import { Factory } from './components/Factory';
+import MachineToolbox from './containers/MachineToolbox'
+import Factory from './containers/Factory'
 
-function App() {
+function App () {
   return (
-    <div className="App">
+    <div className='App'>
       <MachineToolbox />
-      <Factory h={8} w={8} />
+      <Factory />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

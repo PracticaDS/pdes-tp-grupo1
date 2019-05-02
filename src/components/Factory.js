@@ -1,23 +1,14 @@
 import React from 'react'
+import FactoryBlock from '../containers/FactoryBlock'
 
 import './Factory.css'
 
 export class Factory extends React.Component {
-  createBlocks = () => {
-    let blocks = []
-    for (let i = 1; i <= this.props.h; i++) {
-      for (let j = 1; j <= this.props.w; j++) {
-        blocks.push(<Block x={i} y={j} />)
-      }
-    }
-    return blocks
-  }
-
-  render() {
+  render () {
     return (
-      <div className="factory"> { this.createBlocks() } </div>
+      <div className='factory'>
+        { this.props.factory.map((b, k) => <FactoryBlock type={b.type} key={k} id={k} />) }
+      </div>
     )
   }
 }
-
-const Block = ({x}, {y}) => <div className='block'></div>
