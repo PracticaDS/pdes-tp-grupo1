@@ -9,3 +9,7 @@ export const added = (blockId) => ({
   type: constants.ACTION_ADDNEW,
   blockId: blockId
 })
+
+export const tick = () => ({
+  type: 'TICK'
+})
