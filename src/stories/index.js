@@ -8,6 +8,7 @@ import { FurnaceMachine } from '../components/FurnaceMachine'
 import { TransporterMachine } from '../components/TransporterMachine'
 import { MachineToolbox } from '../components/MachineToolbox'
 import { Factory } from '../components/Factory'
+import { DeleteEditor } from '../components/DeleteEditor'
 
 storiesOf('Maquinas', module)
   .add('Crafter', () => <CrafterMachine />)
@@ -21,3 +22,6 @@ storiesOf('Toolbox', module)
 
 storiesOf('Factory', module)
   .add('Factory', () => <Factory h={8} w={8} />)
+
+storiesOf('Edicion', module)
+  .add('Delete', () => <DeleteEditor />)

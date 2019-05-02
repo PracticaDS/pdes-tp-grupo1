@@ -9,3 +9,8 @@ export const added = (blockId) => ({
   type: constants.ACTION_ADDNEW,
   blockId: blockId
 })
+
+export const deleted = (blockId) => ({
+  type: constants.ACTION_DELETE,
+  blockId: blockId
+})

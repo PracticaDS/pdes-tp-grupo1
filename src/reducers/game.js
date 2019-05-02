@@ -20,6 +20,8 @@ export const game = (state, action) => {
       }
     case constants.ACTION_ADDNEW:
       return addNewMachine(state, action.blockId)
+    case constants.ACTION_DELETE:
+      console.log('AAAAAAAAAAAAAA')
     default:
       return state
   }
