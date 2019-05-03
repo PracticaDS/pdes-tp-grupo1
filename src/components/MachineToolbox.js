@@ -14,11 +14,11 @@ export const MachineToolbox = ({onSelected}) => {
     <div className='toolbox'>
       <h1 className='title'>Máquinas</h1>
       <div className='items'>
-        <span onClick={() => onSelected(constants.BLOCK_STARTER)} ><StarterMachine /></span>
-        <span onClick={() => onSelected(constants.BLOCK_TRANSPORTER)} ><TransporterMachine /></span>
-        <span onClick={() => onSelected(constants.BLOCK_CRAFTER)} ><CrafterMachine /></span>
-        <span onClick={() => onSelected(constants.BLOCK_FURNACE)} ><FurnaceMachine /></span>
-        <span onClick={() => onSelected(constants.BLOCK_SELLER)} ><SellerMachine /></span>
+        <span onClick={() => onSelected(constants.MACHINE_STARTER)} ><StarterMachine /></span>
+        <span onClick={() => onSelected(constants.MACHINE_TRANSPORTER)} ><TransporterMachine /></span>
+        <span onClick={() => onSelected(constants.MACHINE_CRAFTER)} ><CrafterMachine /></span>
+        <span onClick={() => onSelected(constants.MACHINE_FURNACE)} ><FurnaceMachine /></span>
+        <span onClick={() => onSelected(constants.MACHINE_SELLER)} ><SellerMachine /></span>
       </div>
     </div>
   )
