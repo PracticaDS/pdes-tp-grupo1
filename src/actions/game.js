@@ -14,3 +14,7 @@ export const deleted = (blockId) => ({
   type: constants.ACTION_DELETE,
   blockId: blockId
 })
+
+export const tick = () => ({
+  type: 'TICK'
+})
