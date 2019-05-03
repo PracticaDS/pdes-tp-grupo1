@@ -1,0 +1,50 @@
+.machine {
+  width: 64px;
+  height: 64px;
+  line-height: 64px;
+}
+
+.machine.left {
+  transform: rotate(90deg);
+}
+
+.machine.up {
+  transform: rotate(180deg);
+}
+
+.machine.right {
+  transform: rotate(-90deg);
+}
+
+.furnace {
+  background-image: url('/img/furnace.png');
+}
+
+.seller {
+  background-image: url('/img/seller.png');
+}
+
+.starter {
+  background-image: url('/img/starter.png');
+}
+
+.transporter {
+  background-image: url('/img/transporter.png');
+}
+
+.crafter {
+  background-image: url('/img/crafter.png');
+}
+
+.machine > .material {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 35%;
+  left: 35%;
+  background-color: black;
+}
+
+.material.iron {
+  background-color: chocolate;
+}
