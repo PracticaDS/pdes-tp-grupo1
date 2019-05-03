@@ -5,7 +5,7 @@ import { deleted } from '../actions/game'
 
 const mapActionsToProps = dispatch => {
   return {
-    onDeleted: blockId => dispatch(deleted())
+    onDeleted: blockId => dispatch(deleted(blockId))
   }
 }
 

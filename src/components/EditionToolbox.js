@@ -6,12 +6,12 @@ import './EditionToolbox.css'
 
 const constants = require('../constants')
 
-export const EditionToolbox = ({onDeleted}) => {
+export const EditionToolbox = ({ onDeleted }) => {
   return (
     <div className='toolbox'>
       <h1 className='title'>Edición</h1>
       <div className='items'>
-      <span onClick={() => onDeleted(constants.ACTION_DELETE)} ><DeleteEditor /></span>
+        <span onClick={() => onDeleted(constants.ACTION_DELETE)} ><DeleteEditor /></span>
       </div>
     </div>
   )
