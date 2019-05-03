@@ -10,6 +10,11 @@ export const added = (blockId) => ({
   blockId: blockId
 })
 
+export const deleted = (blockId) => ({
+  type: constants.ACTION_DELETE,
+  blockId: blockId
+})
+
 export const tick = () => ({
   type: 'TICK'
 })

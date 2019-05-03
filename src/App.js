@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { tick } from './actions/game'
 import MachineToolbox from './containers/MachineToolbox'
 import Factory from './containers/Factory'
+import EditionToolbox from './containers/EditionToolbox'
 
 class App extends React.Component {
   componentDidMount () {
@@ -14,6 +15,7 @@ class App extends React.Component {
   render () {
     return (
       <div className='App'>
+        <EditionToolbox />
         <MachineToolbox />
         <Factory />
       </div>
