@@ -2,7 +2,7 @@
   "name": "pdes-tp-grupo1",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/PracticaDS/pdes-tp-grupo1 ",
+  "homepage": "https://practicads.github.io/pdes-tp-grupo1",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
