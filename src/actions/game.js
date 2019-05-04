@@ -10,9 +10,12 @@ export const added = (blockId) => ({
   blockId: blockId
 })
 
-export const deleted = (blockId) => ({
-  type: constants.ACTION_DELETE,
-  blockId: blockId
+export const deleted = () => ({
+  type: constants.ACTION_DELETE
+})
+
+export const rotate = () => ({
+  type: constants.ACTION_ROTATE
 })
 
 export const tick = () => ({

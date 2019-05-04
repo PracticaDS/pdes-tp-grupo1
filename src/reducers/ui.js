@@ -3,13 +3,54 @@ import { game } from './game';
 const constants = require('../constants')
 
 const addNewMachine = (state, blockId) => {
+  if (state.selected === constants.ACTION_ROTATE) {
+    const machine = state.factory[blockId]
+    switch (machine.orientation) {
+      case 'UP':
+        state.factory[blockId] = {
+          ...machine,
+          orientation: 'RIGHT'
+        }
+        break
+      case 'RIGHT':
+        state.factory[blockId] = {
+          ...machine,
+          orientation: 'DOWN'
+        }
+        break
+      case 'DOWN':
+        state.factory[blockId] = {
+          ...machine,
+          orientation: 'LEFT'
+        }
+        break
+      case 'LEFT':
+        state.factory[blockId] = {
+          ...machine,
+          orientation: 'UP'
+        }
+        break
+      default: 
+        state.factory[blockId] = {
+          ...machine,
+          orientation: 'LEFT'
+        }
+    }
+
+
+    return {
+      ...state,
+      factory: state.factory.slice(0)
+    }
+  }
+  
   if (!state.selected) {
     return state
   }
 
   return {
     ...state,
-    factory: state.factory.map((e, k) => k === blockId ? { type: state.selected } : e),
+    factory: state.factory.map((e, k) => k === blockId ? { type: state.selected, orientation: 'DOWN' } : e),
     selected: ''
   }
 }
@@ -23,6 +64,11 @@ export const ui = (state, action) => {
       }
     case constants.ACTION_ADDNEW:
       return addNewMachine(state, action.blockId)
+    case constants.ACTION_ROTATE:     
+      return {
+        ...state,
+        selected: constants.ACTION_ROTATE 
+      }
     case constants.ACTION_DELETE:
       return {
         ...state,

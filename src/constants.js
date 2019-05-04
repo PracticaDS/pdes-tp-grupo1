@@ -12,6 +12,7 @@ export const MACHINE_TYPES = [MACHINE_STARTER, MACHINE_SELLER, MACHINE_TRANSPORT
 export const ACTION_SELECTION = 'ACTION_SELECTION'
 export const ACTION_ADDNEW = 'ACTION_ADDNEW'
 export const ACTION_DELETE = 'ACTION_DELETE'
+export const ACTION_ROTATE = 'ACTION_ROTATE'
 
 export const initialState = {
   factory: [...Array(FACTORY_HEIGHT * FACTORY_WIDTH)].map(() => ({ type: BLOCK_EMPTY })),

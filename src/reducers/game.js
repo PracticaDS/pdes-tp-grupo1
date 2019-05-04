@@ -1,12 +1,18 @@
 const constants = require("../constants")
 
 var registerChanges = []
-
+var dir = {
+  DOWN: 8,
+  RIGHT: 1,
+  UP: -8,
+  LEFT: -1
+}
 const updateMachine = (machine, id) => {
   if (machine.type === constants.MACHINE_STARTER) {
     if (machine.material) {
       registerChanges.push({id, change: 'CLEAN'})
-      registerChanges.push({id: id + 8, change: 'IRON'})
+
+      registerChanges.push({id: id + dir[machine.orientation], change: 'IRON'})
     } else {
       registerChanges.push({id, change: 'IRON'})
     }
@@ -15,7 +21,7 @@ const updateMachine = (machine, id) => {
   if (machine.type === constants.MACHINE_TRANSPORTER) {
     if (machine.material) {
       registerChanges.push({id, change: 'CLEAN'})
-      registerChanges.push({id: id + 8, change: 'IRON'})
+      registerChanges.push({id: id + dir[machine.orientation], change: 'IRON'})
     }
   }
 
