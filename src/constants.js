@@ -15,5 +15,6 @@ export const ACTION_DELETE = 'ACTION_DELETE'
 
 export const initialState = {
   factory: [...Array(FACTORY_HEIGHT * FACTORY_WIDTH)].map(() => ({ type: BLOCK_EMPTY })),
-  selected: ''
+  selected: '',
+  money: 1000
 }

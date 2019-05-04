@@ -9,7 +9,7 @@ import EditionToolbox from './containers/EditionToolbox'
 
 class App extends React.Component {
   componentDidMount () {
-    setInterval(this.props.notifyTick, 2000)
+    setInterval(this.props.notifyTick, 1000)
   }
 
   render () {

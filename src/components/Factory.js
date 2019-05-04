@@ -7,7 +7,7 @@ export class Factory extends React.Component {
   render () {
     return (
       <div className='factory'>
-        { this.props.factory.map((b, k) => <FactoryBlock type={b.type} key={k} id={k} />) }
+        { this.props.factory.map((block, k) => <FactoryBlock block={block} key={k} id={k} />) }
       </div>
     )
   }

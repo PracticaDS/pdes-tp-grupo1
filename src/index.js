@@ -6,7 +6,7 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
 import { Provider } from 'react-redux'
 import { initialState } from './constants'
-import { game as reducer } from './reducers/game'
+import { ui as reducer } from './reducers/ui'
 
 const store = createStore(
   reducer,

@@ -1,34 +1,65 @@
-const constants = require('../constants')
+const constants = require("../constants")
 
-const addNewMachine = (state, blockId) => {
-  if (!state.selected) {
-    return state
+var registerChanges = []
+
+const updateMachine = (machine, id) => {
+  if (machine.type === constants.MACHINE_STARTER) {
+    if (machine.material) {
+      registerChanges.push({id, change: 'CLEAN'})
+      registerChanges.push({id: id + 8, change: 'IRON'})
+    } else {
+      registerChanges.push({id, change: 'IRON'})
+    }
   }
 
-  return {
-    factory: state.factory.map((e, k) => k === blockId ? { type: state.selected } : e),
-    selected: ''
+  if (machine.type === constants.MACHINE_TRANSPORTER) {
+    if (machine.material) {
+      registerChanges.push({id, change: 'CLEAN'})
+      registerChanges.push({id: id + 8, change: 'IRON'})
+    }
+  }
+
+  if (machine.type === constants.MACHINE_SELLER) {
+    if (machine.material) {
+      registerChanges.push({id, change: 'CLEAN'})
+      registerChanges.push({id, change: 'ADD_MONEY'})
+    }
+  }
+}
+
+const apply = (state, change) => {
+  const machine = state.factory[change.id]
+  if (change.change === 'CLEAN') {
+    state.factory[change.id] = {
+      ...machine,
+      material: ''
+    }
+  }
+
+  if (change.change === 'IRON') {
+    state.factory[change.id] = {
+      ...machine,
+      material: 'IRON'
+    }
+  }
+
+  if (change.change === 'ADD_MONEY') {
+    state.money = state.money + 100
+  }
+
+  return state
+}
+
+const tick = (state) => {
+  state.factory.map((machine, id) => updateMachine(machine, id))
+  const new_state = registerChanges.reduce((factory, change) => apply(factory, change), state)
+  registerChanges = []
+  return {  
+    ...state,
+    factory: new_state.factory.slice(0)
   }
 }
 
 export const game = (state, action) => {
-  switch (action.type) {
-    case constants.ACTION_SELECTION:
-      return {
-        ...state,
-        selected: action.machine
-      }
-    case constants.ACTION_ADDNEW:
-      console.log(action.blockId)
-      return addNewMachine(state, action.blockId)
-    case constants.ACTION_DELETE:
-      console.log(state.factory[0])
-      return {
-        ...state,
-        selected: constants.BLOCK_EMPTY,
-        machine: state[action.blockId]
-      }
-    default:
-      return state
-  }
+  return tick(state)
 }

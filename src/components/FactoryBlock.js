@@ -6,7 +6,7 @@ import { Machine } from './Machine'
 const constants = require('../constants')
 
 export const FactoryBlock = (props) => {
-  const renderMachine = () => props.type !== constants.BLOCK_EMPTY ? <Machine type={props.type} /> : ''
+  const renderMachine = () => props.block.type !== constants.BLOCK_EMPTY ? <Machine type={props.block.type} material={props.block.material} /> : ''
 
   return (
     <span className='block' onClick={() => props.onClick(props.id)}>{renderMachine()}</span>
@@ -14,7 +14,7 @@ export const FactoryBlock = (props) => {
 }
 
 FactoryBlock.propTypes = {
-  type: PropTypes.string.isRequired,
+  block: PropTypes.object.isRequired,
   id: PropTypes.number.isRequired,
   onClick: PropTypes.func
 }
