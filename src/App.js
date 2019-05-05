@@ -9,17 +9,23 @@ import EditionToolbox from './containers/EditionToolbox'
 import DetailsToolBox from './containers/DetailsToolBox'
 
 class App extends React.Component {
-  componentDidMount () {
+  componentDidMount() {
     setInterval(this.props.notifyTick, 1000)
   }
 
-  render () {
+  render() {
     return (
       <div className='App'>
-        {/* <EditionToolbox /> */}
-        <MachineToolbox />
-        <Factory />
-        <DetailsToolBox />
+        <header className="App-header">
+          <h1>
+            Revolución Industrial
+          </h1>
+        </header>
+        <body>
+          <MachineToolbox />
+          <Factory />
+          <DetailsToolBox />
+        </body>
       </div>
     )
   }

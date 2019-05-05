@@ -4,8 +4,10 @@
   flex-wrap: wrap;
   width: 550px;
   height: 400px;
-  margin-left: 20%;
+  /* margin-left: 20%; */
   margin-top: 5%;
+  margin-left: 35%;
+  float: center;
 }
 
 .factory .block {
