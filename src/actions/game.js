@@ -18,6 +18,10 @@ export const rotate = () => ({
   type: constants.ACTION_ROTATE
 })
 
+export const move = () => ({
+  type: constants.ACTION_MOVE,
+})
+
 export const tick = () => ({
   type: 'TICK'
 })
