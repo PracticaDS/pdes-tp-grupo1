@@ -1,19 +1,20 @@
 import { connect } from 'react-redux'
 import { DetailsToolBox } from '../components/DetailsToolBox'
 
-import { deleted, rotate, getMoney } from '../actions/game'
+import { deleted, rotate, move } from '../actions/game'
 
 const mapActionsToProps = dispatch => {
   return {
     onDeleted: () => dispatch(deleted()),
-    onRotate: () => dispatch(rotate())
+    onRotate: () => dispatch(rotate()),
+    onMove: () => dispatch(move())
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  console.log(state)
+const mapStateToProps = (state) => {
   return {
-    money: state.money
+    money: state.money,
+    toMove: state.toMove
   }
 }
 

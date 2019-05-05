@@ -77,6 +77,19 @@ export const ui = (state, action) => {
       }
     case 'TICK':
       return game(state, action)
+    case constants.ACTION_MOVE:
+      console.log(state.toMove)
+      if (state.toMove === true) {
+        return {
+          ...state,
+          toMove: false
+        }  
+      } else {
+        return {
+          ...state,
+          toMove: true
+        }
+      } 
     default:
       return state
   }

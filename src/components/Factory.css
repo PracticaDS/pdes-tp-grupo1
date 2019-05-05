@@ -16,3 +16,23 @@
   border-radius: 10px;
   cursor: pointer;
 }
+
+.factor_disabled {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  width: 550px;
+  height: 400px;
+  margin-left: 20%;
+  margin-top: 5%;
+}
+
+.factory_disabled .block {
+  border: 1px solid darkgray;
+  height: 64px;
+  width: 64px;
+  background-color:lightgray;
+  border-radius: 10px;
+  border-style: dotted;
+  cursor: pointer;
+}
