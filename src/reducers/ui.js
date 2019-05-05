@@ -30,7 +30,7 @@ const addNewMachine = (state, blockId) => {
           orientation: 'UP'
         }
         break
-      default: 
+      default:
         state.factory[blockId] = {
           ...machine,
           orientation: 'LEFT'
@@ -43,7 +43,7 @@ const addNewMachine = (state, blockId) => {
       factory: state.factory.slice(0)
     }
   }
-  
+
   if (!state.selected) {
     return state
   }
@@ -51,7 +51,29 @@ const addNewMachine = (state, blockId) => {
   return {
     ...state,
     factory: state.factory.map((e, k) => k === blockId ? { type: state.selected, orientation: 'DOWN' } : e),
-    selected: ''
+    selected: '',
+    money: state.selected === constants.MACHINE_STARTER ? state.money - constants.STARTER_PRICE :
+      state.selected === constants.MACHINE_SELLER ? state.money - constants.SELLER_PRICE :
+        state.selected === constants.MACHINE_CRAFTER ? state.money - constants.CRAFTER_PRICE :
+          state.selected === constants.MACHINE_FURNACE ? state.money - constants.FURNACE_PRICE :
+            state.selected === constants.MACHINE_TRANSPORTER ? state.money - constants.TRANSPORTER_PRICE : state.money
+  }
+}
+
+const haveEnoughMoney = (state) => {
+  switch (state.selected) {
+    case constants.MACHINE_STARTER:
+      return state.money >= constants.STARTER_PRICE
+    case constants.MACHINE_TRANSPORTER:
+      return state.money >= constants.TRANSPORTER_PRICE
+    case constants.MACHINE_CRAFTER:
+      return state.money >= constants.CRAFTER_PRICE
+    case constants.MACHINE_FURNACE:
+      return state.money >= constants.FURNACE_PRICE
+    case constants.MACHINE_SELLER:
+      return state.money >= constants.SELLER_PRICE
+    default:
+      return true
   }
 }
 
@@ -63,11 +85,13 @@ export const ui = (state, action) => {
         selected: action.machine
       }
     case constants.ACTION_ADDNEW:
-      return addNewMachine(state, action.blockId)
-    case constants.ACTION_ROTATE:     
+      if (haveEnoughMoney(state)) {
+        return addNewMachine(state, action.blockId)
+      }
+    case constants.ACTION_ROTATE:
       return {
         ...state,
-        selected: constants.ACTION_ROTATE 
+        selected: constants.ACTION_ROTATE
       }
     case constants.ACTION_DELETE:
       return {
@@ -78,18 +102,17 @@ export const ui = (state, action) => {
     case 'TICK':
       return game(state, action)
     case constants.ACTION_MOVE:
-      console.log(state.toMove)
       if (state.toMove === true) {
         return {
           ...state,
           toMove: false
-        }  
+        }
       } else {
         return {
           ...state,
           toMove: true
         }
-      } 
+      }
     default:
       return state
   }

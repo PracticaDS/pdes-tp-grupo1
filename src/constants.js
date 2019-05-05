@@ -15,6 +15,12 @@ export const ACTION_DELETE = 'ACTION_DELETE'
 export const ACTION_ROTATE = 'ACTION_ROTATE'
 export const ACTION_MOVE = 'ACTION_MOVE'
 
+export const STARTER_PRICE = 100
+export const SELLER_PRICE = 250
+export const TRANSPORTER_PRICE = 50
+export const FURNACE_PRICE = 300
+export const CRAFTER_PRICE = 200
+
 export const initialState = {
   factory: [...Array(FACTORY_HEIGHT * FACTORY_WIDTH)].map(() => ({ type: BLOCK_EMPTY })),
   selected: '',
