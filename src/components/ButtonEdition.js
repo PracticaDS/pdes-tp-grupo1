@@ -4,6 +4,6 @@ import '../styles/ButtonEdition.css'
 
 export class ButtonEdition extends React.Component {
   render () {
-    return <div className='buttonEditor' />
+    return <div className='buttonEdition' />
   }
 }
