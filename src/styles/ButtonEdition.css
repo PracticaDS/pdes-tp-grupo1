@@ -1,0 +1,13 @@
+.delete {
+  width: 58px;
+  height: 58px;
+  /* background-color: blue; */
+  background-image: url('/img/remove.png');
+}
+
+.rotate {
+  width: 58px;
+  height: 58px;
+  /* background-color: blue; */
+  background-image: url('/img/rotate.png');
+}
