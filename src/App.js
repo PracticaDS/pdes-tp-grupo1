@@ -6,6 +6,7 @@ import { tick } from './actions/game'
 import MachineToolbox from './containers/MachineToolbox'
 import Factory from './containers/Factory'
 import EditionToolbox from './containers/EditionToolbox'
+import DetailsToolBox from './containers/DetailsToolBox'
 
 class App extends React.Component {
   componentDidMount () {
@@ -18,6 +19,7 @@ class App extends React.Component {
         <EditionToolbox />
         <MachineToolbox />
         <Factory />
+        <DetailsToolBox />
       </div>
     )
   }
