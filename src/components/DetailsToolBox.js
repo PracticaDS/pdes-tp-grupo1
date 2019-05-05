@@ -9,10 +9,6 @@ const constants = require('../constants')
 export const DetailsToolBox = ({ onDeleted, onRotate, money, onMove}) => {
   return (
     <div className='detailstoolbox'>
-      <div className='details'>
-        <h3 className="detalles">Detalles</h3>
-        <label className="money">Dinero: {money} </label>
-      </div>
       <div className='toolbox'>
         <h1 className='title'>Edición</h1>
         <div className='items'>

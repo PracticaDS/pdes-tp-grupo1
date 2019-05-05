@@ -7,6 +7,7 @@ import MachineToolbox from './containers/MachineToolbox'
 import Factory from './containers/Factory'
 import EditionToolbox from './containers/EditionToolbox'
 import DetailsToolBox from './containers/DetailsToolBox'
+import Money from './containers/Money'
 
 class App extends React.Component {
   componentDidMount() {
@@ -22,6 +23,7 @@ class App extends React.Component {
           </h1>
         </header>
         <body>
+          <Money />
           <MachineToolbox />
           <Factory />
           <DetailsToolBox />
