@@ -16,7 +16,7 @@ class App extends React.Component {
   render () {
     return (
       <div className='App'>
-        <EditionToolbox />
+        {/* <EditionToolbox /> */}
         <MachineToolbox />
         <Factory />
         <DetailsToolBox />
