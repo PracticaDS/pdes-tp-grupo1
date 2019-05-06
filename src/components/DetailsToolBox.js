@@ -8,26 +8,14 @@ const constants = require('../constants')
 
 export const DetailsToolBox = ({ onDeleted, onRotate, onMove, machinePrice }) => {
   console.log(machinePrice)
-  var price = ''
-  switch (machinePrice) {
-    case 'STARTER':
-      price = 100
-      break
-    case 'SELLER':
-      price = 250
-      break
-    case 'TRANSPORTER':
-      price = 50
-      break
-    case 'FURNACE':
-      price = 300
-      break
-    case 'CRAFTER':
-      price = 200
-      break
-    default:
-      price = ''
+  var price = {
+    starter: 100,
+    seller: 250,
+    transporter: 50, 
+    furnace: 300,
+    crafter: 200
   }
+  
   return (
     <div className='detailstoolbox'>
       <div className='toolbox2'>
@@ -36,7 +24,7 @@ export const DetailsToolBox = ({ onDeleted, onRotate, onMove, machinePrice }) =>
           <span className="delete" onClick={() => onDeleted()} ><ButtonEdition /></span>
           <span className="rotate" onClick={() => onRotate()} ><ButtonEdition /></span>
           <span className="move" onClick={() => onMove()} ><ButtonEdition /></span>
-          <span className="price">Precio: {price}</span>
+          <span className="price">Precio: {price[machinePrice.toLowerCase()]}</span>
         </div>
       </div>
     </div>
