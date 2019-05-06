@@ -24,7 +24,7 @@ export const DetailsToolBox = ({ onDeleted, onRotate, onMove, machinePrice }) =>
           <span className="delete" onClick={() => onDeleted()} ><ButtonEdition /></span>
           <span className="rotate" onClick={() => onRotate()} ><ButtonEdition /></span>
           <span className="move" onClick={() => onMove()} ><ButtonEdition /></span>
-          <span className="price">Precio: {price[machinePrice.toLowerCase()]}</span>
+          <span className="price">Precio: $ {price[machinePrice.toLowerCase()]}</span>
         </div>
       </div>
     </div>
