@@ -6,7 +6,9 @@
 }
 
 h1{
-  color: #E88A37
+  color: #E88A37;
+  font-size: 20px;
+  text-align: center;
 }
 
 .App-logo {
@@ -24,6 +26,12 @@ h1{
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  font-size: 30px;
+}
+
+.app-title {
+  font-size: 30px;
+  text-align: center;
 }
 
 .App-link {
