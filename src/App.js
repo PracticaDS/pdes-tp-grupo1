@@ -5,28 +5,26 @@ import { connect } from 'react-redux'
 import { tick } from './actions/game'
 import MachineToolbox from './containers/MachineToolbox'
 import Factory from './containers/Factory'
-import EditionToolbox from './containers/EditionToolbox'
 import DetailsToolBox from './containers/DetailsToolBox'
 import Money from './containers/Money'
 
 class App extends React.Component {
-  componentDidMount() {
+  componentDidMount () {
     setInterval(this.props.notifyTick, 1000)
   }
 
-  render() {
+  render () {
     return (
       <div className='App'>
-        <header className="App-header">
-          <h1 className="app-title">
+        <header className='App-header'>
+          <h1 className='app-title'>
             Revolución Industrial
           </h1>
+          <Money />
         </header>
         <body>
-          <Money />
           <MachineToolbox />
           <Factory />
-          {/* <EditionToolbox /> */}
           <DetailsToolBox />
         </body>
       </div>
