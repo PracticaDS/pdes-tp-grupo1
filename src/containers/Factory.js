@@ -4,7 +4,8 @@ import { Factory } from '../components/Factory'
 const mapStateToProps = (state) => {
   return {
     selected: state.selected,
-    factory: state.factory
+    factory: state.factory,
+    toMove: state.toMove
   }
 }
 

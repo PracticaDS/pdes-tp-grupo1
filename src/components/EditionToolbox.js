@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { DeleteEditor } from './DeleteEditor'
+import { ButtonEdition } from './ButtonEdition'
 
 import './EditionToolbox.css'
 
@@ -11,8 +11,8 @@ export const EditionToolbox = ({ onDeleted, onRotate }) => {
     <div className='toolbox'>
       <h1 className='title'>Edición</h1>
       <div className='items'>
-        <span onClick={() => onDeleted()} ><DeleteEditor /></span>
-        <span onClick={() => onRotate()} ><DeleteEditor /></span>
+          <span className="delete" onClick={() => onDeleted()} ><ButtonEdition /></span>
+          <span className="rotate" onClick={() => onRotate()} ><ButtonEdition /></span>
       </div>
     </div>
   )
