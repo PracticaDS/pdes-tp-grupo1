@@ -3,6 +3,8 @@ import { DetailsToolBox } from '../components/DetailsToolBox'
 
 import { deleted, rotate, move } from '../actions/game'
 
+const constants = require('../constants')
+
 const mapActionsToProps = dispatch => {
   return {
     onDeleted: () => dispatch(deleted()),
@@ -14,7 +16,8 @@ const mapActionsToProps = dispatch => {
 const mapStateToProps = (state) => {
   return {
     money: state.money,
-    toMove: state.toMove
+    toMove: state.toMove,
+    machinePrice: state.selected
   }
 }
 

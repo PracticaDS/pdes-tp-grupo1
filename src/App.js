@@ -26,6 +26,7 @@ class App extends React.Component {
           <Money />
           <MachineToolbox />
           <Factory />
+          {/* <EditionToolbox /> */}
           <DetailsToolBox />
         </body>
       </div>
