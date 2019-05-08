@@ -36,15 +36,15 @@
 }
 
 .btn.delete {
-  background-image: url('/img/remove.png');
+  background-image: url('../img/remove.png');
 }
 
 .btn.rotate {
-  background-image: url('/img/remove.png');
+  background-image: url('../img/rotate.png');
 }
 
 .btn.move {
-  background-image: url('/img/remove.png');
+  background-image: url('../img/move.png');
 }
 
 .details-toolbox .buttons-material {
