@@ -17,23 +17,23 @@
 }
 
 .furnace {
-  background-image: url('/img/furnace.png');
+  background-image: url('../img/furnace.png');
 }
 
 .seller {
-  background-image: url('/img/seller.png');
+  background-image: url('../img/seller.png');
 }
 
 .starter {
-  background-image: url('/img/starter.png');
+  background-image: url('../img/starter.png');
 }
 
 .transporter {
-  background-image: url('/img/transporter.png');
+  background-image: url('../img/transporter.png');
 }
 
 .crafter {
-  background-image: url('/img/crafter.png');
+  background-image: url('../img/crafter.png');
 }
 
 .machine > .material {
