@@ -1,5 +1,5 @@
 .toolbox {
-  width: 150px;
+  width: 160px;
   float: left;
   margin-left: 10%;
   border-radius: 10px;
@@ -20,10 +20,18 @@
   align-items: flex-start;
   border: 2px solid darkgray;
   /* border: 1px black solid; */
-  height: 200px;
+  height: 220px;
 }
 
-.toolbox .items span {
+.toolbox .items .btn {
   cursor: pointer;
   margin-left: 2%;
+  padding: 0;
+  margin: 2px;
+  border: 2px transparent solid;
+}
+
+.toolbox .items .btn.selected {
+  border: 2px goldenrod solid;
+  border-radius: 10px;
 }

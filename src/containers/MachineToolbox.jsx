@@ -9,4 +9,10 @@ const mapActionsToProps = dispatch => {
   }
 }
 
-export default connect(null, mapActionsToProps)(MachineToolbox)
+const mapStateToProps = (state) => {
+  return {
+    selection: state.selected,
+  }
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(MachineToolbox)
