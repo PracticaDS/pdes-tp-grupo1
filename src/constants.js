@@ -22,7 +22,7 @@ export const FURNACE_PRICE = 300
 export const CRAFTER_PRICE = 200
 
 export const initialState = {
-  factory: [...Array(FACTORY_HEIGHT * FACTORY_WIDTH)].map(() => ({ type: BLOCK_EMPTY })),
+  factory: [...Array(FACTORY_HEIGHT * FACTORY_WIDTH)].map(() => null),
   selected: '',
   money: 1000
 }

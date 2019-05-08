@@ -5,22 +5,16 @@ import '../styles/Machine.css'
 
 export const Machine = (props) => {
   const showMaterial = () => (
-    props.material ? <div className={`material ${props.material.toLowerCase()}`} /> : ''
+    props.machine.material ? <div className={`material ${props.machine.material.name.toLowerCase()}`} /> : ''
   )
 
   return (
-    <div className={`machine ${props.type.toLowerCase()} ${props.orientation.toLowerCase()}`} >
+    <div className={`machine ${props.machine.name.toLowerCase()} ${props.machine.orientation.toLowerCase()}`} >
       {showMaterial()}
     </div>
   )
 }
 
 Machine.propTypes = {
-  type: PropTypes.string.isRequired,
-  material: PropTypes.string,
-  orientation: PropTypes.oneOf(['DOWN', 'UP', 'LEFT', 'RIGHT'])
-}
-
-Machine.defaultProps = {
-  orientation: 'DOWN'
+  machine: PropTypes.object.isRequired
 }
