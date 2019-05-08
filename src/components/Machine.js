@@ -9,12 +9,13 @@ export const Machine = (props) => {
   )
 
   return (
-    <div className={`machine ${props.machine.name.toLowerCase()} ${props.machine.orientation.toLowerCase()}`} >
+    <div onClick={props.onClick} className={`machine ${props.machine.name.toLowerCase()} ${props.machine.orientation.toLowerCase()}`} >
       {showMaterial()}
     </div>
   )
 }
 
 Machine.propTypes = {
-  machine: PropTypes.object.isRequired
+  machine: PropTypes.object.isRequired,
+  onClick: PropTypes.func
 }

@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { BaseMachine } from '../model/machine'
+
 import './MachineToolbox.css'
 import '../styles/Machine.css'
 
@@ -22,7 +24,7 @@ MachineToolbox.propTypes = {
 }
 
 const Button = ({type, onSelected}) => (
-  <span onClick={() => onSelected(type)}>
+  <span onClick={() => onSelected(BaseMachine.createMachine(type))}>
     <div className={'machine ' + type.toLowerCase()} />
   </span>
 )

@@ -1,28 +1,48 @@
-.detailstoolbox {
-  /* float: right;
-  margin-top: -37%;
-  margin-right: 14%; */
+.details-toolbox {
   padding: 5px;
   width: 15%;
 }
 
-.toolbox2 .items {
+.details-toolbox .content {
   background-color: #d3a985;
   border-radius: 10px;
   padding: 5px;
   display: flex;
-  flex-flow: row;
+  flex-flow: column;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
   border: 2px solid darkgray;
-  /* border: 1px black solid; */
   height: 300px;
 }
 
-.price {
-  font-size: 20px;
-  color: red;
-  font-weight: bold;
-  margin-top: -50%;
+.details-toolbox .buttons {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.machine-details {
+  text-align: left;
+}
+
+.buttons .btn {
+  width: 58px;
+  height: 58px;
+  cursor: pointer;
+}
+
+.btn.delete {
+  background-image: url('/img/remove.png');
+}
+
+.btn.rotate {
+  background-image: url('/img/remove.png');
+}
+
+.btn.move {
+  background-image: url('/img/remove.png');
 }

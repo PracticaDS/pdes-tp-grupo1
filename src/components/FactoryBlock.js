@@ -3,18 +3,19 @@ import PropTypes from 'prop-types'
 
 import { Machine } from './Machine'
 
-const constants = require('../constants')
-
 export const FactoryBlock = (props) => {
   const renderMachine = () => props.machine ? <Machine machine={props.machine} /> : ''
 
-  return (
-    <span className='block' onClick={() => props.onClick(props.id)}>{renderMachine()}</span>
-  )
+  if (props.machine) {
+    return <span className='block'><Machine onClick={() => props.onMachineClick(props.machine)} machine={props.machine} /></span>
+  } else {
+    return <span className='block' onClick={() => props.onBlankClick(props.id)} />
+  }
 }
 
 FactoryBlock.propTypes = {
   machine: PropTypes.object,
   id: PropTypes.number.isRequired,
-  onClick: PropTypes.func
+  onBlankClick: PropTypes.func,
+  onMachineClick: PropTypes.func
 }

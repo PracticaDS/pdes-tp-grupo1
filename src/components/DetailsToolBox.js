@@ -1,32 +1,51 @@
 import React from 'react'
-
-import { ButtonEdition } from './ButtonEdition'
+import PropTypes from 'prop-types'
 
 import '../styles/DetailsToolBox.css'
 
-const constants = require('../constants')
-
-export const DetailsToolBox = ({ onDeleted, onRotate, onMove, machinePrice }) => {
-  console.log(machinePrice)
-  var price = {
-    starter: 100,
-    seller: 250,
-    transporter: 50, 
-    furnace: 300,
-    crafter: 200
-  }
-  
-  return (
-    <div className='detailstoolbox'>
-      <div className='toolbox2'>
-        <h1 className='title'>Edición</h1>
-        <div className='items'>
-          <span className="delete" onClick={() => onDeleted()} ><ButtonEdition /></span>
-          <span className="rotate" onClick={() => onRotate()} ><ButtonEdition /></span>
-          <span className="move" onClick={() => onMove()} ><ButtonEdition /></span>
-          <span className="price">Precio: $ {price[machinePrice.toLowerCase()]}</span>
+export const DetailsToolBox = (props) => {
+  const renderButtons = () => {
+    if (props.selection && props.selection.type !== 'NEW') {
+      return (
+        <div className='buttons'>
+          <div className='btn delete' onClick={() => props.onDeleted(props.selection.machine)} />
+          <div className='btn rotate' onClick={() => props.onRotate(props.selection.machine)} />
+          <div className='btn move' onClick={() => props.onMove(props.selection.machine)} />
         </div>
+      )
+    } else {
+      return null
+    }
+  }
+
+  return (
+    <div className='details-toolbox'>
+      <h1 className='title'>Edición</h1>
+      <div className='content'>
+        <MachineDetails machine={props.selection.machine} />
+        {renderButtons()}
       </div>
     </div>
   )
+}
+
+DetailsToolBox.propTypes = {
+  selection: PropTypes.object,
+  money: PropTypes.number,
+  onDeleted: PropTypes.func,
+  onRotate: PropTypes.func,
+  onMove: PropTypes.func
+}
+
+const MachineDetails = (props) => {
+  if (props.machine) {
+    return (
+      <div className='machine-details'>
+        <p>MACHINE: {props.machine.name}</p>
+        <p>Precio: ${props.machine.price}</p>
+      </div>
+    )
+  } else {
+    return null
+  }
 }

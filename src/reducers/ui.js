@@ -1,24 +1,14 @@
 import { game } from './game'
-import { BaseMachine } from '../model/machine'
 
 const constants = require('../constants')
 
 const addNewMachine = (state, blockId) => {
-  if (state.selected === constants.ACTION_ROTATE) {
-    const machine = state.factory[blockId]
-    machine.rotate()
-    state.factory[blockId] = machine.clone()
-
-    return {
-      ...state,
-      factory: state.factory.slice(0)
-    }
-  }
-
-  if (!state.selected) {
+  if (state.selected.type !== 'NEW') {
     return state
   }
-  const newMachine = BaseMachine.createMachine(state.selected, blockId)
+  const newMachine = state.selected.machine
+  newMachine.id = blockId
+
   if (newMachine.price > state.money) {
     return state
   }
@@ -26,31 +16,49 @@ const addNewMachine = (state, blockId) => {
   return {
     ...state,
     factory: state.factory.map((e, k) => k === blockId ? newMachine : e),
-    selected: '',
+    selected: { type: 'MACHINE', machine: newMachine },
     money: state.money - newMachine.price
+  }
+}
+
+const rotateMachine = (state, machine) => {
+  machine.rotate()
+  state.factory[machine.id] = machine.clone()
+
+  return {
+    ...state,
+    factory: state.factory.slice(0)
+  }
+}
+
+const deleteMachine = (state, machine) => {
+  state.factory[machine.id] = null
+
+  return {
+    ...state,
+    selected: '',
+    factory: state.factory.slice(0)
   }
 }
 
 export const ui = (state, action) => {
   switch (action.type) {
-    case constants.ACTION_SELECTION:
+    case constants.ACTION_SELECTION_NEW:
       return {
         ...state,
-        selected: action.machine
+        selected: { type: 'NEW', machine: action.machine }
       }
-    case constants.ACTION_ADDNEW:
+    case constants.ACTION_SELECTION_BLANK:
       return addNewMachine(state, action.blockId)
+    case constants.ACTION_SELECTION_MACHINE:
+      return {
+        ...state,
+        selected: { type: 'MACHINE', machine: action.machine }
+      }
     case constants.ACTION_ROTATE:
-      return {
-        ...state,
-        selected: constants.ACTION_ROTATE
-      }
+      return rotateMachine(state, action.machine)
     case constants.ACTION_DELETE:
-      return {
-        ...state,
-        selected: constants.BLOCK_EMPTY,
-        machine: state[action.blockId]
-      }
+      return deleteMachine(state, action.machine)
     case 'TICK':
       return game(state, action)
     case constants.ACTION_MOVE:

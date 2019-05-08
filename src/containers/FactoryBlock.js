@@ -1,11 +1,12 @@
 import { connect } from 'react-redux'
 import { FactoryBlock } from '../components/FactoryBlock'
 
-import { added } from '../actions/game'
+import { blankSelection, machineSelection } from '../actions/game'
 
 const mapActionsToProps = dispatch => {
   return {
-    onClick: blockId => dispatch(added(blockId))
+    onBlankClick: blockId => dispatch(blankSelection(blockId)),
+    onMachineClick: machine => dispatch(machineSelection(machine))
   }
 }
 
