@@ -18,11 +18,28 @@ export const DetailsToolBox = (props) => {
     }
   }
 
+  const renderMaterialSelection = () => {
+    if (props.selection && props.selection.machine.production) {
+      return (
+        <div className='buttons-material'>
+          <div className='btn iron' onClick={() => selectMaterial('IRON')} />
+          <div className='btn diamond' onClick={() => selectMaterial('DIAMOND')} />
+          <div className='btn gold' onClick={() => selectMaterial('GOLD')} />
+        </div>
+      )
+    } else {
+      return null
+    }
+  }
+
+  const selectMaterial = (material) => (props.selection.machine.production = material)
+
   return (
     <div className='details-toolbox'>
       <h1 className='title'>Edición</h1>
       <div className='content'>
         <MachineDetails machine={props.selection.machine} />
+        {renderMaterialSelection()}
         {renderButtons()}
       </div>
     </div>
@@ -42,6 +59,8 @@ const MachineDetails = (props) => {
     return (
       <div className='machine-details'>
         <p>MACHINE: {props.machine.name}</p>
+        {props.machine.frequency ? <p>Frecuencia: {props.machine.frequency}</p> : ''}
+        {props.machine.production ? <p>Producción: {props.machine.production}</p> : ''}
         <p>Precio: ${props.machine.price}</p>
       </div>
     )

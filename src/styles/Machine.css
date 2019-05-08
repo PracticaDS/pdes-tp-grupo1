@@ -48,3 +48,13 @@
 .material.iron {
   background-color: chocolate;
 }
+
+.material.diamond {
+  background-color: white;
+  transform: rotate(45deg)
+}
+
+.material.gold {
+  background-color: yellow;
+  border-radius: 5px;
+}

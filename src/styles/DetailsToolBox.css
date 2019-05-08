@@ -46,3 +46,33 @@
 .btn.move {
   background-image: url('/img/remove.png');
 }
+
+.details-toolbox .buttons-material {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.buttons-material .btn {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.btn.iron {
+  background-color: chocolate;
+}
+
+.btn.diamond {
+  background-color: white;
+  transform: rotate(45deg)
+}
+
+.btn.gold {
+  background-color: yellow;
+  border-radius: 5px;
+}

@@ -1,4 +1,4 @@
-import { IronMaterial } from './material'
+import { Material } from './material'
 import { TransportUpdate, CleanUpdate } from './modelUpdate'
 
 export class BaseMachine {
@@ -44,7 +44,7 @@ export class StarterMachine extends BaseMachine {
   constructor (id) {
     super(id)
     this.name = 'STARTER'
-    this.production = IronMaterial
+    this.production = 'IRON'
     this.frequency = 3
     this.counter = 0
   }
@@ -53,7 +53,7 @@ export class StarterMachine extends BaseMachine {
     this.counter++
     if (this.frequency === this.counter) {
       this.counter = 0
-      return [new TransportUpdate(this.getNextMachineId(), new this.production())]
+      return [new TransportUpdate(this.getNextMachineId(), Material.createMaterial(this.production))]
     }
 
     return []
