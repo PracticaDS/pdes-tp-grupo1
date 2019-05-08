@@ -10,7 +10,7 @@ import Money from './containers/Money'
 
 class App extends React.Component {
   componentDidMount () {
-    // setInterval(this.props.notifyTick, 1000)
+    setInterval(this.props.notifyTick, 1000)
   }
 
   render () {
