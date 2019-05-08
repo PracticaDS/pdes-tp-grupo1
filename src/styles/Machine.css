@@ -49,12 +49,28 @@
   background-color: chocolate;
 }
 
+.material.liquid_iron {
+  background-color: chocolate;
+  border-radius: 15px;
+}
+
 .material.diamond {
   background-color: white;
   transform: rotate(45deg)
 }
 
+.material.liquid_diamond {
+  background-color: lightgray;
+  transform: rotate(45deg);
+  border-radius: 5px;
+}
+
 .material.gold {
   background-color: yellow;
   border-radius: 5px;
+}
+
+.material.liquid_gold {
+  background-color: goldenrod;
+  border-radius: 8px;
 }

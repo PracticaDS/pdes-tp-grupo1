@@ -95,6 +95,10 @@ export class FurnaceMachine extends BaseMachine {
     super()
     this.name = 'FURNACE'
   }
+
+  update () {
+    return this.material ? [new CleanUpdate(this.id), new TransportUpdate(this.getNextMachineId(), this.material.transform())] : []
+  }
 }
 
 export class CrafterMachine extends BaseMachine {
