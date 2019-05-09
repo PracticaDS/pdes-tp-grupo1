@@ -3,10 +3,12 @@ node_js:
   - "stable"
 script:
   - yarn test
+  - yarn run build
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: d3da291dcc4ecd5e7ef6373356d714cb49814320
+  local_dir: build
   keep_history: true
   on:
     branch: master
