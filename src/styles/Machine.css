@@ -1,0 +1,76 @@
+.machine {
+  width: 64px;
+  height: 64px;
+  line-height: 64px;
+}
+
+.machine.left {
+  transform: rotate(90deg);
+}
+
+.machine.up {
+  transform: rotate(180deg);
+}
+
+.machine.right {
+  transform: rotate(-90deg);
+}
+
+.furnace {
+  background-image: url('../img/furnace.png');
+}
+
+.seller {
+  background-image: url('../img/seller.png');
+}
+
+.starter {
+  background-image: url('../img/starter.png');
+}
+
+.transporter {
+  background-image: url('../img/transporter.png');
+}
+
+.crafter {
+  background-image: url('../img/crafter.png');
+}
+
+.machine > .material {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 35%;
+  left: 35%;
+  background-color: black;
+}
+
+.material.iron {
+  background-color: chocolate;
+}
+
+.material.liquid_iron {
+  background-color: chocolate;
+  border-radius: 15px;
+}
+
+.material.diamond {
+  background-color: white;
+  transform: rotate(45deg)
+}
+
+.material.liquid_diamond {
+  background-color: lightgray;
+  transform: rotate(45deg);
+  border-radius: 5px;
+}
+
+.material.gold {
+  background-color: yellow;
+  border-radius: 5px;
+}
+
+.material.liquid_gold {
+  background-color: goldenrod;
+  border-radius: 8px;
+}

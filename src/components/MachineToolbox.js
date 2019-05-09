@@ -1,25 +1,44 @@
 import React from 'react'
-import { StarterMachine } from './StarterMachine'
-import { TransporterMachine } from './TransporterMachine'
-import { FurnaceMachine } from './FurnaceMachine'
-import { SellerMachine } from './SellerMachine'
-import { CrafterMachine } from './CrafterMachine'
+import PropTypes from 'prop-types'
+
+import { BaseMachine } from '../model/machine'
 
 import './MachineToolbox.css'
+import '../styles/Machine.css'
 
+var classNames = require('classnames');
 const constants = require('../constants')
 
-export const MachineToolbox = ({onSelected}) => {
+export const MachineToolbox = ({ onSelected, selection }) => {
   return (
     <div className='toolbox'>
       <h1 className='title'>Máquinas</h1>
       <div className='items'>
-        <span onClick={() => onSelected(constants.BLOCK_STARTER)} ><StarterMachine /></span>
-        <span onClick={() => onSelected(constants.BLOCK_TRANSPORTER)} ><TransporterMachine /></span>
-        <span onClick={() => onSelected(constants.BLOCK_CRAFTER)} ><CrafterMachine /></span>
-        <span onClick={() => onSelected(constants.BLOCK_FURNACE)} ><FurnaceMachine /></span>
-        <span onClick={() => onSelected(constants.BLOCK_SELLER)} ><SellerMachine /></span>
+        {constants.MACHINE_TYPES.map(t => <Button type={t} selection={selection} onSelected={onSelected} />)}
       </div>
     </div>
   )
+}
+
+MachineToolbox.propTypes = {
+  onSelected: PropTypes.func,
+  selection: PropTypes.object
+}
+
+const Button = ({ type, onSelected, selection }) => {
+  const classes = {
+    btn: true,
+    selected: selection.machine && type === selection.machine.name && selection.type === 'NEW'
+  }
+
+  return (
+    <span className={classNames(classes)} onClick={() => onSelected(BaseMachine.createMachine(type))}>
+      <div className={'machine ' + type.toLowerCase()} />
+    </span>
+  )
+}
+
+Button.propTypes = {
+  onSelected: PropTypes.func,
+  type: PropTypes.string
 }

@@ -1,0 +1,78 @@
+.details-toolbox {
+  padding: 5px;
+  width: 15%;
+}
+
+.details-toolbox .content {
+  background-color: #d3a985;
+  border-radius: 10px;
+  padding: 5px;
+  display: flex;
+  flex-flow: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 2px solid darkgray;
+  height: 300px;
+}
+
+.details-toolbox .buttons {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.machine-details {
+  text-align: left;
+}
+
+.buttons .btn {
+  width: 58px;
+  height: 58px;
+  cursor: pointer;
+}
+
+.btn.delete {
+  background-image: url('../img/remove.png');
+}
+
+.btn.rotate {
+  background-image: url('../img/rotate.png');
+}
+
+.btn.move {
+  background-image: url('../img/move.png');
+}
+
+.details-toolbox .buttons-material {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.buttons-material .btn {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.btn.iron {
+  background-color: chocolate;
+}
+
+.btn.diamond {
+  background-color: white;
+  transform: rotate(45deg)
+}
+
+.btn.gold {
+  background-color: yellow;
+  border-radius: 5px;
+}

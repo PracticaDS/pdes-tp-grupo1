@@ -1,12 +1,18 @@
 import { connect } from 'react-redux'
 import { MachineToolbox } from '../components/MachineToolbox'
 
-import { selected } from '../actions/game'
+import { newSelection } from '../actions/game'
 
 const mapActionsToProps = dispatch => {
   return {
-    onSelected: machineType => dispatch(selected(machineType))
+    onSelected: machine => dispatch(newSelection(machine))
   }
 }
 
-export default connect(null, mapActionsToProps)(MachineToolbox)
+const mapStateToProps = (state) => {
+  return {
+    selection: state.selected,
+  }
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(MachineToolbox)

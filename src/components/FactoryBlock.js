@@ -1,33 +1,21 @@
 import React from 'react'
-import { StarterMachine } from './StarterMachine'
-import { TransporterMachine } from './TransporterMachine'
-import { FurnaceMachine } from './FurnaceMachine'
-import { SellerMachine } from './SellerMachine'
-import { CrafterMachine } from './CrafterMachine'
+import PropTypes from 'prop-types'
 
-const constants = require('../constants')
+import { Machine } from './Machine'
 
-export class FactoryBlock extends React.Component {
-  renderMachine () {
-    switch (this.props.type) {
-      case constants.BLOCK_FURNACE:
-        return <FurnaceMachine />
-      case constants.BLOCK_STARTER:
-        return <StarterMachine />
-      case constants.BLOCK_SELLER:
-        return <SellerMachine />
-      case constants.BLOCK_TRANSPORTER:
-        return <TransporterMachine />
-      case constants.BLOCK_CRAFTER:
-        return <CrafterMachine />
-      default:
-        return ''
-    }
+export const FactoryBlock = (props) => {
+  const renderMachine = () => props.machine ? <Machine machine={props.machine} /> : ''
+
+  if (props.machine) {
+    return <span className='block'><Machine onClick={() => props.onMachineClick(props.machine)} machine={props.machine} /></span>
+  } else {
+    return <span className='block' onClick={() => props.onBlankClick(props.id)} />
   }
+}
 
-  render () {
-    return (
-      <span className='block' onClick={() => this.props.onClick(this.props.id)}>{this.renderMachine()}</span>
-    )
-  }
+FactoryBlock.propTypes = {
+  machine: PropTypes.object,
+  id: PropTypes.number.isRequired,
+  onBlankClick: PropTypes.func,
+  onMachineClick: PropTypes.func
 }

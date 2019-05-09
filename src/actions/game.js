@@ -1,15 +1,33 @@
 const constants = require('../constants')
 
-export const selected = (machineType) => ({
-  type: constants.ACTION_SELECTION,
-  machine: machineType
+export const newSelection = (machine) => ({
+  type: constants.ACTION_SELECTION_NEW,
+  machine: machine
 })
 
-export const added = (blockId) => ({
-  type: constants.ACTION_ADDNEW,
+export const blankSelection = (blockId) => ({
+  type: constants.ACTION_SELECTION_BLANK,
   blockId: blockId
 })
 
-export const tick = () => ({
-  type: 'TICK'
+export const machineSelection = (machine) => ({
+  type: constants.ACTION_SELECTION_MACHINE,
+  machine: machine
 })
+
+export const deleted = (machine) => ({
+  type: constants.ACTION_DELETE,
+  machine
+})
+
+export const rotate = (machine) => ({
+  type: constants.ACTION_ROTATE,
+  machine
+})
+
+export const move = (machine) => ({
+  type: constants.ACTION_MOVE,
+  machine
+})
+
+export const tick = () => ({ type: 'TICK' })

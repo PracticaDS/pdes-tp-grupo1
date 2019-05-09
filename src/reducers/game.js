@@ -1,26 +1,36 @@
-const constants = require('../constants')
+var globalUpdates = []
 
-const addNewMachine = (state, blockId) => {
-  if (!state.selected) {
+const updateMachine = (machine, id) => {
+  const changes = machine.update()
+  globalUpdates = globalUpdates.concat(changes)
+}
+
+const apply = (state, update) => {
+  const machineTarget = state.factory[update.id]
+  if (!machineTarget) {
     return state
   }
 
+  if (machineTarget.profit) {
+    state.money = state.money + machineTarget.profit
+  }
+
+  state.factory[update.id] = update.execute(machineTarget)
+
+  return state
+}
+
+const tick = (state) => {
+  state.factory.map((machine, id) => machine ? updateMachine(machine, id) : null)
+  const newState = globalUpdates.reduce((state, change) => apply(state, change), state)
+  globalUpdates = []
+
   return {
-    factory: state.factory.map((e, k) => k === blockId ? {type: state.selected} : e),
-    selected: ''
+    ...state,
+    factory: newState.factory.slice(0)
   }
 }
 
 export const game = (state, action) => {
-  switch (action.type) {
-    case constants.ACTION_SELECTION:
-      return {
-        ...state,
-        selected: action.machine
-      }
-    case constants.ACTION_ADDNEW:
-      return addNewMachine(state, action.blockId)
-    default:
-      return state
-  }
+  return tick(state)
 }
