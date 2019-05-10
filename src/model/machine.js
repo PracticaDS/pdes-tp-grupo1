@@ -16,7 +16,7 @@ export class BaseMachine {
       case 'TRANSPORTER': return new TransporterMachine(id)
       case 'FURNACE': return new FurnaceMachine(id)
       case 'CRAFTER': return new CrafterMachine(id)
-      default: return
+      default:
     }
   }
 
@@ -29,7 +29,7 @@ export class BaseMachine {
   }
 
   getNextMachineId () {
-    const dirs = {DOWN: 8, RIGHT: 1, UP: -8, LEFT: -1}
+    const dirs = { DOWN: 8, RIGHT: 1, UP: -8, LEFT: -1 }
     return this.id + dirs[this.orientation]
   }
 

@@ -26,4 +26,3 @@ export class TransportUpdate extends Update {
     return machine.clone()
   }
 }
-
