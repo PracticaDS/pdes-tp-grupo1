@@ -1,4 +1,5 @@
-import { CrafterMachine, StarterMachine, TransporterMachine, SellerMachine } from '../model/machine'
+import { CrafterMachine, StarterMachine, TransporterMachine, SellerMachine, FurnaceMachine } from '../model/machine'
+import { IronMaterial, LiquidIronMaterial } from '../model/material';
 
 it('Test machine properties', () => {
   const machine = new CrafterMachine()
@@ -59,9 +60,31 @@ it('Seller Machine update with material', () => {
 it('Seller Machine update without material', () => {
   const machine = new SellerMachine(3)
   machine.material = ''
-    
+  
+  var rta = machine.update()
+  
   expect(machine.profit).toEqual(0)
+  expect(rta).toEqual([])
   
 });
 
+it('Furnace Machine update with material', () => {
+  const machine = new FurnaceMachine(3)
+  machine.material = new IronMaterial()
 
+  var rta = machine.update()
+  
+  expect(rta[0].id).toEqual(3)
+  expect(rta[1].id).toEqual(11)
+  expect(rta[1].material).toEqual(new LiquidIronMaterial())
+});
+
+it('Furnace Machine update without material', () => {
+  const machine = new FurnaceMachine(3)
+  machine.material = ''
+  
+  var rta = machine.update()
+  
+  expect(rta).toEqual([])
+  
+});
