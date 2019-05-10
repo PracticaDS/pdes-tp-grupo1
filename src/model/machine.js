@@ -79,6 +79,7 @@ export class SellerMachine extends BaseMachine {
   }
 }
 
+
 export class TransporterMachine extends BaseMachine {
   constructor (id) {
     super(id)
@@ -91,8 +92,8 @@ export class TransporterMachine extends BaseMachine {
 }
 
 export class FurnaceMachine extends BaseMachine {
-  constructor () {
-    super()
+  constructor (id) {
+    super(id)
     this.name = 'FURNACE'
   }
 
