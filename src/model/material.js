@@ -9,7 +9,7 @@ export class Material {
       case 'IRON': return new IronMaterial()
       case 'DIAMOND': return new DiamondMaterial()
       case 'GOLD': return new GoldMaterial()
-      default: return
+      default:
     }
   }
 

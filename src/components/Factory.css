@@ -16,6 +16,10 @@
   cursor: pointer;
 }
 
+.factory .block.selected {
+  border: 1px goldenrod solid;
+}
+
 .factor_disabled {
   display: flex;
   flex-flow: row;

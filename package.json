@@ -21,10 +21,17 @@
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
     "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "lint": "standard"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "standard": {
+    "globals": [ "describe", "it", "expect" ],
+    "ignore": [
+      "src/serviceWorker.js"
+    ]
   },
   "browserslist": {
     "production": [
@@ -47,6 +54,7 @@
     "@storybook/react": "^5.0.8",
     "babel-loader": "^8.0.5",
     "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.12.1"
+    "enzyme-adapter-react-16": "^1.12.1",
+    "standard": "^12.0.1"
   }
 }

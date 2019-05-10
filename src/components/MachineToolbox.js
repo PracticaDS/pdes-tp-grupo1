@@ -6,7 +6,7 @@ import { BaseMachine } from '../model/machine'
 import './MachineToolbox.css'
 import '../styles/Machine.css'
 
-var classNames = require('classnames');
+var classNames = require('classnames')
 const constants = require('../constants')
 
 export const MachineToolbox = ({ onSelected, selection }) => {
