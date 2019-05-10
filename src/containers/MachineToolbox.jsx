@@ -11,7 +11,7 @@ const mapActionsToProps = dispatch => {
 
 const mapStateToProps = (state) => {
   return {
-    selection: state.selected,
+    selection: state.selected
   }
 }
 

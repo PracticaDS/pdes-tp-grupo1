@@ -10,4 +10,10 @@ const mapActionsToProps = dispatch => {
   }
 }
 
-export default connect(null, mapActionsToProps)(FactoryBlock)
+const mapStateToProps = (state) => {
+  return {
+    selection: state.selected
+  }
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(FactoryBlock)
