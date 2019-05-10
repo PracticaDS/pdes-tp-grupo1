@@ -1,6 +1,10 @@
-class Update {
+export class Update {
   constructor (machineId) {
     this.id = machineId
+  }
+
+  execute (machine) {
+    return machine.clone()
   }
 }
 
@@ -22,3 +26,4 @@ export class TransportUpdate extends Update {
     return machine.clone()
   }
 }
+

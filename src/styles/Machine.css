@@ -40,9 +40,20 @@
   width: 20px;
   height: 20px;
   position: relative;
-  top: 35%;
+  top: 0;
   left: 35%;
   background-color: black;
+  z-index: 999;
+}
+
+.transporter .material {
+  animation: move 1s linear;
+}
+
+@keyframes move {
+  100% {
+    transform: translateY(64px)
+  }
 }
 
 .material.iron {
