@@ -45,6 +45,23 @@ it('Transporter Machine update without material', () => {
   expect(rta).toEqual([])
 });
 
+it('Seller Machine update with material', () => {
+  const machine = new SellerMachine(3)
+  machine.material = {'material': 'IRON', 'price': 100}
 
+  var rta = machine.update();
+
+  expect(machine.profit).toEqual(100)
+  expect(rta[0].id).toEqual(3)
+  
+});
+
+it('Seller Machine update without material', () => {
+  const machine = new SellerMachine(3)
+  machine.material = ''
+    
+  expect(machine.profit).toEqual(0)
+  
+});
 
 
