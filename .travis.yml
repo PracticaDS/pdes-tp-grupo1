@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "stable"
+  - "11.10.1"
 cache:
   yarn: true
   directories:
@@ -12,6 +12,7 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: d3da291dcc4ecd5e7ef6373356d714cb49814320
+  keep_history: true
   local_dir: build
   on:
     branch: master
