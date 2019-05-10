@@ -1,8 +1,7 @@
-import { CrafterMachine, StarterMachine } from '../model/machine'
+import { CrafterMachine, StarterMachine, TransporterMachine, SellerMachine } from '../model/machine'
 
 it('Test machine properties', () => {
   const machine = new CrafterMachine()
-
   expect(machine.name).toEqual('CRAFTER')
   expect(machine.orientation).toEqual('DOWN')
   expect(machine.material).toEqual('')
@@ -10,7 +9,6 @@ it('Test machine properties', () => {
 
 it('Test machine with id', () => {
   const machine = new StarterMachine(2)
-
   expect(machine.name).toEqual('STARTER')
   expect(machine.id).toEqual(2)
 });
@@ -25,13 +23,26 @@ it('Test machine rotate', () => {
 it('Starter machine: when a count of update is equals a frecuency, return a TransportUpdate wich Id is id machine + Dir', () => {
   const machine = new StarterMachine(3)
   machine.frecuency = 3
-  
   machine.update();
   machine.update();
-
   var rta = machine.update();
-  
   expect(rta[0].id).toEqual(11)
+});
+
+it('Transporter Machine update with material', () => {
+  const machine = new TransporterMachine(3)
+  machine.material = 'IRON'
+  var rta = machine.update();
+  expect(rta[0].id).toEqual(3)
+  expect(rta[1].id).toEqual(11)
+  expect(rta[1].material).toEqual('IRON')
+});
+
+it('Transporter Machine update without material', () => {
+  const machine = new TransporterMachine(3)
+  machine.material = ''
+  var rta = machine.update()
+  expect(rta).toEqual([])
 });
 
 
