@@ -1,7 +1,7 @@
 import React from 'react'
 import FactoryBlock from '../containers/FactoryBlock'
 
-import './Factory.css'
+import '../styles/Factory.css'
 
 export class Factory extends React.Component {
   render () {

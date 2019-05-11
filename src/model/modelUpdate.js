@@ -10,7 +10,7 @@ export class Update {
 
 export class CleanUpdate extends Update {
   execute (machine) {
-    machine.material = null
+    machine.material = []
     return machine.clone()
   }
 }
@@ -22,7 +22,7 @@ export class TransportUpdate extends Update {
   }
 
   execute (machine) {
-    machine.material = this.material
+    machine.material.push(this.material)
     return machine.clone()
   }
 }
