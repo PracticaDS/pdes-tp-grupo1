@@ -79,7 +79,6 @@ export class SellerMachine extends BaseMachine {
   }
 }
 
-
 export class TransporterMachine extends BaseMachine {
   constructor (id) {
     super(id)
