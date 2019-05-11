@@ -2,6 +2,7 @@ export class Material {
   constructor (name) {
     this.name = name
     this.price = 100
+    this.content = ''
   }
 
   static createMaterial (type) {
@@ -63,5 +64,12 @@ export class GoldMaterial extends Material {
 export class LiquidGoldMaterial extends Material {
   constructor () {
     super('LIQUID_GOLD')
+  }
+}
+
+export class SwordMaterial extends Material {
+  constructor () {
+    super('SWORD')
+    this.content = '⚔'
   }
 }

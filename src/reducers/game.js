@@ -13,6 +13,7 @@ const apply = (state, update) => {
 
   if (machineTarget.profit) {
     state.money = state.money + machineTarget.profit
+    machineTarget.profit = 0
   }
 
   state.factory[update.id] = update.execute(machineTarget)
