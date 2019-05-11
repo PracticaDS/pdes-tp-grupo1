@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { BaseMachine } from '../model/machine'
 
-import './MachineToolbox.css'
+import '../styles/MachineToolbox.css'
 import '../styles/Machine.css'
 
 var classNames = require('classnames')
