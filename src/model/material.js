@@ -70,6 +70,6 @@ export class LiquidGoldMaterial extends Material {
 export class SwordMaterial extends Material {
   constructor () {
     super('SWORD')
-    this.content = '⚔'
+    this.content = '🗡️'
   }
 }
