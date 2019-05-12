@@ -1,6 +1,6 @@
 import { CrafterMachine, StarterMachine, TransporterMachine, SellerMachine, FurnaceMachine } from '../model/machine'
 import { IronMaterial, LiquidIronMaterial } from '../model/material'
-import { Update } from '../model/modelUpdate';
+import { Update } from '../model/modelUpdate'
 
 it('Test machine properties', () => {
   const machine = new CrafterMachine()
