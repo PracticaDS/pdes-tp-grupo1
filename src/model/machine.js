@@ -84,7 +84,7 @@ export class TransporterMachine extends BaseMachine {
   update () {
     const changes = []
     this.material.map(material => {
-      changes.push(new TransportUpdate(this.getNextMachineId(), material))
+      return changes.push(new TransportUpdate(this.getNextMachineId(), material))
     })
     this.material = []
     changes.push(new Update(this.id))
@@ -102,7 +102,7 @@ export class FurnaceMachine extends BaseMachine {
   update () {
     const changes = []
     this.material.map(material => {
-      changes.push(new TransportUpdate(this.getNextMachineId(), material.transform()))
+      return changes.push(new TransportUpdate(this.getNextMachineId(), material.transform()))
     })
     this.material = []
     changes.push(new Update(this.id))
