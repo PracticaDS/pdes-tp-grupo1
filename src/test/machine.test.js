@@ -1,11 +1,12 @@
 import { CrafterMachine, StarterMachine, TransporterMachine, SellerMachine, FurnaceMachine } from '../model/machine'
 import { IronMaterial, LiquidIronMaterial } from '../model/material'
+import { Update } from '../model/modelUpdate';
 
 it('Test machine properties', () => {
   const machine = new CrafterMachine()
   expect(machine.name).toEqual('CRAFTER')
   expect(machine.orientation).toEqual('DOWN')
-  expect(machine.material).toEqual('')
+  expect(machine.material).toEqual([])
 })
 
 it('Test machine with id', () => {
@@ -32,23 +33,23 @@ it('Starter machine: when a count of update is equals a frecuency, return a Tran
 
 it('Transporter Machine update with material', () => {
   const machine = new TransporterMachine(3)
-  machine.material = 'IRON'
+  machine.material.push('IRON')
   var rta = machine.update()
-  expect(rta[0].id).toEqual(3)
-  expect(rta[1].id).toEqual(11)
-  expect(rta[1].material).toEqual('IRON')
+  expect(rta[0].id).toEqual(11)
+  expect(rta[1].id).toEqual(3)
+  expect(rta[0].material).toEqual('IRON')
 })
 
 it('Transporter Machine update without material', () => {
   const machine = new TransporterMachine(3)
-  machine.material = ''
+  machine.material = []
   var rta = machine.update()
-  expect(rta).toEqual([])
+  expect(rta).toEqual([new Update(3)])
 })
 
 it('Seller Machine update with material', () => {
   const machine = new SellerMachine(3)
-  machine.material = { 'material': 'IRON', 'price': 100 }
+  machine.material = [{ 'material': 'IRON', 'price': 100 }]
 
   var rta = machine.update()
 
@@ -58,30 +59,30 @@ it('Seller Machine update with material', () => {
 
 it('Seller Machine update without material', () => {
   const machine = new SellerMachine(3)
-  machine.material = ''
+  machine.material = []
 
   var rta = machine.update()
 
   expect(machine.profit).toEqual(0)
-  expect(rta).toEqual([])
+  expect(rta).toEqual([new Update(3)])
 })
 
 it('Furnace Machine update with material', () => {
   const machine = new FurnaceMachine(3)
-  machine.material = new IronMaterial()
+  machine.material.push(new IronMaterial())
 
   var rta = machine.update()
 
-  expect(rta[0].id).toEqual(3)
-  expect(rta[1].id).toEqual(11)
-  expect(rta[1].material).toEqual(new LiquidIronMaterial())
+  expect(rta[1].id).toEqual(3)
+  expect(rta[0].id).toEqual(11)
+  expect(rta[0].material).toEqual(new LiquidIronMaterial())
 })
 
 it('Furnace Machine update without material', () => {
   const machine = new FurnaceMachine(3)
-  machine.material = ''
+  machine.material = []
 
   var rta = machine.update()
 
-  expect(rta).toEqual([])
+  expect(rta).toEqual([new Update(3)])
 })
