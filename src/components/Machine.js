@@ -5,7 +5,8 @@ import '../styles/Machine.css'
 
 export const Machine = (props) => {
   const showMaterial = () => (
-    props.machine.material ? <div className={`material ${props.machine.material.name.toLowerCase()}`} /> : ''
+    props.machine.material.map((material) => <div className={`material ${material.name.toLowerCase()}`} >{material.content}</div>
+    )
   )
 
   return (
