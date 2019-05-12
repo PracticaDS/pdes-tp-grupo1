@@ -79,10 +79,10 @@ it('Furnace Machine update with material', () => {
 })
 
 it('Furnace Machine update without material', () => {
-  const machine = new FurnaceMachine(2)
+  const machine = new FurnaceMachine(3)
   machine.material = []
 
   var rta = machine.update()
 
-  expect(rta).toEqual([new Update(2)])
+  expect(rta).toEqual([new Update(3)])
 })
