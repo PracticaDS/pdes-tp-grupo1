@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react'
 
 import { MachineToolbox } from '../components/MachineToolbox'
 import { Factory } from '../components/Factory'
-import { DeleteEditor } from '../components/DeleteEditor'
 import { Machine } from '../components/Machine'
 
 const constants = require('../constants')
@@ -19,6 +18,3 @@ storiesOf('Toolbox', module)
 
 storiesOf('Factory', module)
   .add('Factory', () => <Factory h={8} w={8} />)
-
-storiesOf('Edicion', module)
-  .add('Delete', () => <DeleteEditor />)

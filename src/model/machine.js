@@ -116,30 +116,9 @@ export class CrafterMachine extends BaseMachine {
     super(id)
     this.name = 'CRAFTER'
     this.recipe = new SwordRecipe()
-    this.change = false
   }
 
   update () {
-    if (this.change) {
-      switch (this.recipe) {
-        case 'IRON' : {
-          this.recipe = new SwordRecipe()
-          break
-        }
-
-        case 'DIAMOND': {
-          this.recipe = new SwordRecipe()
-          break
-        }
-
-        case 'GOLD': {
-          this.recipe = new TrophyRecipe()
-          break
-        }
-        default:
-      }
-    }
-    this.change = false
     const product = this.recipe.craft(this.material)
     if (product) {
       this.material = []
