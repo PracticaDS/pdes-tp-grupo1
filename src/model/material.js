@@ -73,3 +73,10 @@ export class SwordMaterial extends Material {
     this.content = '🗡️'
   }
 }
+
+export class TrophyMaterial extends Material {
+  constructor () {
+    super('Trophy')
+    this.content = '🏆'
+  }
+}

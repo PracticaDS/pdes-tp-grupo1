@@ -120,12 +120,10 @@ export class CrafterMachine extends BaseMachine {
 
   update () {
     const product = this.recipe.craft(this.material)
-
     if (product) {
       this.material = []
       return [new Update(this.id), new TransportUpdate(this.getNextMachineId(), product)]
     }
-
     return []
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import '../styles/DetailsToolBox.css'
+import { SwordRecipe, TrophyRecipe } from '../model/recipe'
 
 export const DetailsToolBox = (props) => {
   const renderButtons = () => {
@@ -32,14 +32,30 @@ export const DetailsToolBox = (props) => {
     }
   }
 
-  const selectMaterial = (material) => (props.selection.machine.production = material)
+  const renderRecipeSelection = () => {
+    if (props.selection.machine) {
+      if (props.selection.machine.name === 'CRAFTER') {
+        return (
+          <div className='buttons-material'>
+            <div className='btn iron' onClick={() => selectRecipe(new SwordRecipe())} />
+            <div className='btn gold' onClick={() => selectRecipe(new TrophyRecipe())} />
+          </div>
+        )
+      }
+    } else {
+      return null
+    }
+  }
 
+  const selectMaterial = (material) => (props.selection.machine.production = material)
+  const selectRecipe = (recipe) => (props.selection.machine.recipe = recipe)
   return (
     <div className='details-toolbox'>
       <h1 className='title'>Edición</h1>
       <div className='content'>
         <MachineDetails machine={props.selection.machine} />
         {renderMaterialSelection()}
+        {renderRecipeSelection()}
         {renderButtons()}
       </div>
     </div>
