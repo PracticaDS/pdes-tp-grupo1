@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import '../styles/DetailsToolBox.css'
-import { SwordMaterial } from '../model/material';
-import { SwordRecipe, TrophyRecipe} from '../model/recipe'
+import { SwordRecipe, TrophyRecipe } from '../model/recipe'
 
 export const DetailsToolBox = (props) => {
   const renderButtons = () => {

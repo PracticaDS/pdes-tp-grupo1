@@ -1,6 +1,6 @@
 import { Material } from './material'
 import { Update, TransportUpdate } from './modelUpdate'
-import { SwordRecipe, TrophyRecipe } from './recipe'
+import { SwordRecipe } from './recipe'
 
 export class BaseMachine {
   constructor (id) {
