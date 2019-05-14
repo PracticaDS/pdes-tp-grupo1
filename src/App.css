@@ -4,11 +4,12 @@
   min-height: 100vh;
 }
 
-.App body {
+.App > .container {
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: flex-start;
 }
 
 h1{

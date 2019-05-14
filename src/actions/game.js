@@ -30,4 +30,10 @@ export const move = (machine) => ({
   machine
 })
 
+export const selectRecipe = (recipe, machineId) => ({
+  type: 'SELECT_RECIPE',
+  recipe,
+  id: machineId
+})
+
 export const tick = () => ({ type: 'TICK' })

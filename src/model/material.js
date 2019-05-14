@@ -80,3 +80,10 @@ export class TrophyMaterial extends Material {
     this.content = '🏆'
   }
 }
+
+export class RingMaterial extends Material {
+  constructor () {
+    super('Ring')
+    this.content = '\u{1F48D}'
+  }
+}

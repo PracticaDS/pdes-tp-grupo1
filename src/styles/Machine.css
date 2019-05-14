@@ -1,7 +1,6 @@
 .machine {
   width: 64px;
   height: 64px;
-  line-height: 64px;
 }
 
 .machine.left {
@@ -24,6 +23,10 @@
   background-image: url('../img/seller.png');
 }
 
+.seller.working {
+  background-image: url('../img/seller-working.png');
+}
+
 .starter {
   background-image: url('../img/starter.png');
 }
@@ -36,20 +39,32 @@
   background-image: url('../img/crafter.png');
 }
 
+.crafter.working {
+  background-image: url('../img/crafter-working.png');
+}
+
 .machine > .material {
   font-family: "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji", Times, Symbola, Aegyptus, Code2000, Code2001, Code2002, Musica, serif, LastResort;
   width: 20px;
   height: 20px;
   position: relative;
-  top: 0;
+  top: 35%;
   left: 35%;
-  background-color: none;
   z-index: 999;
-  font-size: 40px;
+}
+
+.material > .content {
+  margin: 0;
+  padding: 0;
+  font-size: 25px;
 }
 
 .transporter .material {
   animation: move 1s linear;
+}
+
+.crafter .material, .starter .material, .seller .material {
+  visibility: hidden;
 }
 
 @keyframes move {

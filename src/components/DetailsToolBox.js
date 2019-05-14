@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import '../styles/DetailsToolBox.css'
-import { SwordRecipe, TrophyRecipe } from '../model/recipe'
+
+import { SwordRecipe, TrophyRecipe, RingRecipe } from '../model/recipe'
 
 export const DetailsToolBox = (props) => {
   const renderButtons = () => {
@@ -36,10 +38,14 @@ export const DetailsToolBox = (props) => {
     if (props.selection.machine) {
       if (props.selection.machine.name === 'CRAFTER') {
         return (
-          <div className='buttons-material'>
-            <div className='btn iron' onClick={() => selectRecipe(new SwordRecipe())} />
-            <div className='btn gold' onClick={() => selectRecipe(new TrophyRecipe())} />
-          </div>
+          <span>
+            <p>Recetas:</p>
+            <div className='buttons-material'>
+              <div className='btn sword' onClick={() => props.selectRecipe(new SwordRecipe(), props.selection.machine.id)} />
+              <div className='btn trophy' onClick={() => props.selectRecipe(new TrophyRecipe(), props.selection.machine.id)} />
+              <div className='btn ring' onClick={() => props.selectRecipe(new RingRecipe(), props.selection.machine.id)} />
+            </div>
+          </span>
         )
       }
     } else {
@@ -48,7 +54,7 @@ export const DetailsToolBox = (props) => {
   }
 
   const selectMaterial = (material) => (props.selection.machine.production = material)
-  const selectRecipe = (recipe) => (props.selection.machine.recipe = recipe)
+
   return (
     <div className='details-toolbox'>
       <h1 className='title'>Edición</h1>
@@ -67,7 +73,8 @@ DetailsToolBox.propTypes = {
   money: PropTypes.number,
   onDeleted: PropTypes.func,
   onRotate: PropTypes.func,
-  onMove: PropTypes.func
+  onMove: PropTypes.func,
+  selectRecipe: PropTypes.func
 }
 
 const MachineDetails = (props) => {
