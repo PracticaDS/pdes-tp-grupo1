@@ -4,17 +4,37 @@ import { storiesOf } from '@storybook/react'
 import { MachineToolbox } from '../components/MachineToolbox'
 import { Factory } from '../components/Factory'
 import { Machine } from '../components/Machine'
+import { StarterMachine, BaseMachine } from '../model/machine';
+
 
 const constants = require('../constants')
 
 storiesOf('Maquinas', module)
-  .add('Machine default', () => <Machine type={constants.MACHINE_STARTER} />)
-  .add('Machine left', () => <Machine type={constants.MACHINE_STARTER} orientation='LEFT' material='IRON' />)
-  .add('Machine up', () => <Machine type={constants.MACHINE_STARTER} orientation='UP' material='IRON' />)
-  .add('Machine right', () => <Machine type={constants.MACHINE_STARTER} orientation='RIGHT' material='IRON' />)
+  .add('Machine default', () => {
+      const machine = new StarterMachine()
+      return <Machine machine={machine} />
+    })
+  
+  .add('Machine left', () => {
+    const machine = new StarterMachine()
+    machine.orientation = 'LEFT'
+    return <Machine machine={machine} />
+  })
+  .add('Machine up', () => {
+    const machine = new StarterMachine()
+    machine.orientation = 'UP'
+    return <Machine machine={machine} />
+  })
+  .add('Machine right', () => {
+    const machine = new StarterMachine()
+    machine.orientation = 'RIGHT'
+    return <Machine machine={machine} />
+  })
 
 storiesOf('Toolbox', module)
-  .add('MachineToolbox', () => <MachineToolbox />)
-
-storiesOf('Factory', module)
-  .add('Factory', () => <Factory h={8} w={8} />)
+  .add('MachineToolbox', () => {
+    const selection= {
+      machine: new StarterMachine()
+    }
+  return <MachineToolbox selection={selection}/>
+})
