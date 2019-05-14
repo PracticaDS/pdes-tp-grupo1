@@ -2,19 +2,15 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 
 import { MachineToolbox } from '../components/MachineToolbox'
-import { Factory } from '../components/Factory'
 import { Machine } from '../components/Machine'
-import { StarterMachine, BaseMachine } from '../model/machine';
-
-
-const constants = require('../constants')
+import { StarterMachine } from '../model/machine'
 
 storiesOf('Maquinas', module)
   .add('Machine default', () => {
-      const machine = new StarterMachine()
-      return <Machine machine={machine} />
-    })
-  
+    const machine = new StarterMachine()
+    return <Machine machine={machine} />
+  })
+
   .add('Machine left', () => {
     const machine = new StarterMachine()
     machine.orientation = 'LEFT'
@@ -33,8 +29,10 @@ storiesOf('Maquinas', module)
 
 storiesOf('Toolbox', module)
   .add('MachineToolbox', () => {
-    const selection= {
+    const selection = {
       machine: new StarterMachine()
     }
+
   return <MachineToolbox selection={selection}/>
 })
+
