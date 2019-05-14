@@ -33,6 +33,5 @@ storiesOf('Toolbox', module)
       machine: new StarterMachine()
     }
 
-  return <MachineToolbox selection={selection}/>
-})
-
+    return <MachineToolbox selection={selection} />
+  })
