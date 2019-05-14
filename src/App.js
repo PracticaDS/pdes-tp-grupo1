@@ -22,11 +22,11 @@ class App extends React.Component {
           </h1>
           <Money />
         </header>
-        <body>
+        <div className='container'>
           <MachineToolbox />
           <Factory />
           <DetailsToolBox />
-        </body>
+        </div>
       </div>
     )
   }

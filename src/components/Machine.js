@@ -3,14 +3,31 @@ import PropTypes from 'prop-types'
 
 import '../styles/Machine.css'
 
+var classNames = require('classnames')
+
 export const Machine = (props) => {
   const showMaterial = () => (
-    props.machine.material.map((material) => <div className={`material ${material.name.toLowerCase()}`} >{material.content}</div>
-    )
+    props.machine.material.map((material) => {
+      const classes = {
+        material: true,
+        [material.name.toLowerCase()]: true
+      }
+
+      return <div className={classNames(classes)} >
+        <span className='content'>{material.content}</span>
+      </div>
+    })
   )
 
+  const classes = {
+    machine: true,
+    [props.machine.name.toLowerCase()]: true,
+    [props.machine.orientation.toLowerCase()]: true,
+    working: props.machine.material.length > 0
+  }
+
   return (
-    <div onClick={props.onClick} className={`machine ${props.machine.name.toLowerCase()} ${props.machine.orientation.toLowerCase()}`} >
+    <div onClick={props.onClick} className={classNames(classes)}>
       {showMaterial()}
     </div>
   )
