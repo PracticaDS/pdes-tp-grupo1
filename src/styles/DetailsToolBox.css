@@ -57,7 +57,7 @@
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
 }
@@ -68,6 +68,7 @@
   cursor: pointer;
   background-color: white;
   border: 1px solid black;
+  margin-right: 5px;
 }
 
 .btn.iron {
@@ -91,5 +92,10 @@
 
 .btn.sword::after {
   content: '\1F5E1';
+  font-size: 20px;
+}
+
+.btn.ring::after {
+  content: '\1F48D';
   font-size: 20px;
 }

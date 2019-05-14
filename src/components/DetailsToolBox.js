@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import '../styles/DetailsToolBox.css'
-import { SwordRecipe, TrophyRecipe } from '../model/recipe'
+
+import { SwordRecipe, TrophyRecipe, RingRecipe } from '../model/recipe'
 
 export const DetailsToolBox = (props) => {
   const renderButtons = () => {
@@ -41,6 +43,7 @@ export const DetailsToolBox = (props) => {
             <div className='buttons-material'>
               <div className='btn sword' onClick={() => props.selectRecipe(new SwordRecipe(), props.selection.machine.id)} />
               <div className='btn trophy' onClick={() => props.selectRecipe(new TrophyRecipe(), props.selection.machine.id)} />
+              <div className='btn ring' onClick={() => props.selectRecipe(new RingRecipe(), props.selection.machine.id)} />
             </div>
           </span>
         )
