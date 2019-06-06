@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
 import './index.css'
 import App from './App'
+import { MainMenu } from './components/MainMenu'
 import * as serviceWorker from './serviceWorker'
 import { Provider } from 'react-redux'
 import { initialState } from './constants'
@@ -16,7 +17,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <MainMenu />
   </Provider>,
   document.getElementById('root')
 )
