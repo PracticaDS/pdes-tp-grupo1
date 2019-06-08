@@ -1,4 +1,4 @@
-import { game } from './game'
+import { game, init, save } from './game'
 
 const constants = require('../constants')
 
@@ -78,6 +78,10 @@ export const ui = (state, action) => {
       return changeRecipe(state, action.recipe, action.id)
     case 'TICK':
       return game(state, action)
+    case 'INIT':
+      return init(state, action)
+    case 'SAVE':
+      return save(state, action)
     case constants.ACTION_MOVE:
       return {
         ...state,

@@ -7,3 +7,14 @@ body {
 .main-menu {
   margin-top: 100px;
 }
+
+.games-list {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: auto;
+}
+
+.game-button {
+  margin-top: 5px;
+}
