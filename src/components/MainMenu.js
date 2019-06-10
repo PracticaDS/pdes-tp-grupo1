@@ -43,6 +43,7 @@ export const MainMenu = () => {
     axios.get(API + '/usuarios/' + user + '/fabricas')
       .then(result => setGames(result.data))
       .catch(error => {
+        console.log(error)
         axios.post(API + '/usuarios/' + user)
           .then(() => setGames([]))
           .catch(error => console.log(error))
