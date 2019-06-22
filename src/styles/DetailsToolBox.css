@@ -1,10 +1,9 @@
 .details-toolbox {
-  padding: 5px;
-  width: 15%;
+  width: 250px;
 }
 
 .details-toolbox .content {
-  background-color: #d3a985;
+  background-color: #f2f2f2;
   border-radius: 10px;
   padding: 5px;
   display: flex;
@@ -33,6 +32,13 @@
   width: 58px;
   height: 58px;
   cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  border-radius: 10px;
+}
+
+.btn:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .btn.delete {
@@ -51,7 +57,7 @@
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
 }
@@ -61,6 +67,8 @@
   height: 24px;
   cursor: pointer;
   background-color: white;
+  border: 1px solid black;
+  margin-right: 5px;
 }
 
 .btn.iron {
@@ -75,4 +83,19 @@
 .btn.gold {
   background-color: yellow;
   border-radius: 5px;
+}
+
+.btn.trophy::after {
+  content: '\1F3C6';
+  font-size: 20px;
+}
+
+.btn.sword::after {
+  content: '\1F5E1';
+  font-size: 20px;
+}
+
+.btn.ring::after {
+  content: '\1F48D';
+  font-size: 20px;
 }

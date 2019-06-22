@@ -1,4 +1,4 @@
-import { game } from './game'
+import { game, init, save } from './game'
 
 const constants = require('../constants')
 
@@ -41,6 +41,21 @@ const deleteMachine = (state, machine) => {
   }
 }
 
+const changeRecipe = (state, recipe, machineId) => {
+  if (state.factory[machineId]) {
+    state.factory[machineId].recipe = recipe
+  }
+
+  if (state.selected.machine) {
+    state.selected.machine.recipe = recipe
+  }
+
+  return {
+    ...state,
+    factory: state.factory.slice(0)
+  }
+}
+
 export const ui = (state, action) => {
   switch (action.type) {
     case constants.ACTION_SELECTION_NEW:
@@ -59,8 +74,14 @@ export const ui = (state, action) => {
       return rotateMachine(state, action.machine)
     case constants.ACTION_DELETE:
       return deleteMachine(state, action.machine)
+    case 'SELECT_RECIPE':
+      return changeRecipe(state, action.recipe, action.id)
     case 'TICK':
       return game(state, action)
+    case 'INIT':
+      return init(state, action)
+    case 'SAVE':
+      return save(state, action)
     case constants.ACTION_MOVE:
       return {
         ...state,

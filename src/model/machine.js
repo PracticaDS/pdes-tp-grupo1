@@ -84,7 +84,7 @@ export class TransporterMachine extends BaseMachine {
   update () {
     const changes = []
     this.material.map(material => {
-      changes.push(new TransportUpdate(this.getNextMachineId(), material))
+      return changes.push(new TransportUpdate(this.getNextMachineId(), material))
     })
     this.material = []
     changes.push(new Update(this.id))
@@ -94,15 +94,15 @@ export class TransporterMachine extends BaseMachine {
 }
 
 export class FurnaceMachine extends BaseMachine {
-  constructor () {
-    super()
+  constructor (id) {
+    super(id)
     this.name = 'FURNACE'
   }
 
   update () {
     const changes = []
     this.material.map(material => {
-      changes.push(new TransportUpdate(this.getNextMachineId(), material.transform()))
+      return changes.push(new TransportUpdate(this.getNextMachineId(), material.transform()))
     })
     this.material = []
     changes.push(new Update(this.id))
@@ -120,12 +120,10 @@ export class CrafterMachine extends BaseMachine {
 
   update () {
     const product = this.recipe.craft(this.material)
-
     if (product) {
       this.material = []
       return [new Update(this.id), new TransportUpdate(this.getNextMachineId(), product)]
     }
-
     return []
   }
 }

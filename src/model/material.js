@@ -70,6 +70,20 @@ export class LiquidGoldMaterial extends Material {
 export class SwordMaterial extends Material {
   constructor () {
     super('SWORD')
-    this.content = '⚔'
+    this.content = '🗡️'
+  }
+}
+
+export class TrophyMaterial extends Material {
+  constructor () {
+    super('Trophy')
+    this.content = '🏆'
+  }
+}
+
+export class RingMaterial extends Material {
+  constructor () {
+    super('Ring')
+    this.content = '\u{1F48D}'
   }
 }
