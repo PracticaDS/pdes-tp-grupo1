@@ -1,3 +1,7 @@
+import { initialState, API } from '../constants'
+import axios from 'axios'
+import { BaseMachine } from '../model/machine'
+
 var globalUpdates = []
 
 const updateMachine = (machine, id) => {
@@ -34,4 +38,31 @@ const tick = (state) => {
 
 export const game = (state, action) => {
   return tick(state)
+}
+
+export const init = (state, action) => {
+  let newState = action.state.state
+  if (!newState) {
+    newState = initialState
+  } else {
+    newState.factory = newState.factory.map(factory => {
+      if (factory) {
+        return Object.assign(BaseMachine.createMachine(factory.name, factory.id), factory)
+      }
+      return factory
+    })
+  }
+
+  return {
+    ...newState,
+    selected: ''
+  }
+}
+
+export const save = (state, action) => {
+  axios.put(API + '/usuarios/' + action.user + '/fabricas/' + action.game, {
+    state
+  })
+
+  return state
 }

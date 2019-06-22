@@ -37,3 +37,14 @@ export const selectRecipe = (recipe, machineId) => ({
 })
 
 export const tick = () => ({ type: 'TICK' })
+
+export const init = (state) => ({
+  type: 'INIT',
+  state
+})
+
+export const save = (user, game) => ({
+  type: 'SAVE',
+  user,
+  game
+})
