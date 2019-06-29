@@ -22,7 +22,7 @@ export const TRANSPORTER_PRICE = 50
 export const FURNACE_PRICE = 300
 export const CRAFTER_PRICE = 200
 
-export const API = 'http://localhost:3001/api'
+export const API = 'http://factory-grupo1:3001/api'
 
 export const initialState = {
   factory: [...Array(FACTORY_HEIGHT * FACTORY_WIDTH)].map(() => null),
